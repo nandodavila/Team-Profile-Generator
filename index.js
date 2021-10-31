@@ -9,9 +9,10 @@ const employeeArray = [];
 
 const commonQuestions = [
     {
-        type: 'checkbox',
+        type: 'list',
         message: 'What is this employee role?',
-        name: 'role'
+        name: 'role',
+        choices: ['Manager', 'Engineer', 'Intern']
     },
     {
         type: 'input',
@@ -57,4 +58,59 @@ const internQuestion = [
     
 ];
 
+const addQuestion = [
+    {
+        type: 'list',
+        message: 'Do you want to add an Employee?',
+        name: 'add',
+        choices: ['Yes', 'No']
+    },
+    
+];
 
+function init() {
+    inquirer
+        .prompt(addQuestion)
+        .then((val) => {
+            if (val.add === "Yes") {
+                askQuestion()
+            } else {
+                generateHTML()
+            }
+            console.log(employeeArray)
+        })
+}
+
+function askQuestion() { 
+    inquirer
+        .prompt(commonQuestions)
+        .then((data) => {
+            if (data.role === "Manager") {
+                inquirer
+                    .prompt(managerQuestion)
+                    .then((manData) => {
+                        employeeArray.push(new Manager(data.name, data.id, data.email, manData.phone))
+                        init();
+                        });
+            } 
+            else if(data.role === "Engineer") {
+                inquirer
+                    .prompt(engineerQuestion)
+                    .then((engData) => {
+                        employeeArray.push(new Engineer(data.name, data.id, data.email, engData.github))
+                        init();
+                        });
+                }
+            else if(data.role === "Intern") {
+                inquirer
+                    .prompt(internQuestion)
+                    .then((intData) => {
+                        employeeArray.push(new Engineer(data.name, data.id, data.email, intData.school))
+                        init();
+                        });
+                } 
+            
+        });
+};
+
+init();
