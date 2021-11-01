@@ -75,7 +75,7 @@ function init() {
             if (val.add === "Yes") {
                 askQuestion()
             } else {
-                generateHTML()
+                generateHTML(employeeArray)
             }
             console.log(employeeArray)
         })
@@ -105,7 +105,7 @@ function askQuestion() {
                 inquirer
                     .prompt(internQuestion)
                     .then((intData) => {
-                        employeeArray.push(new Engineer(data.name, data.id, data.email, intData.school))
+                        employeeArray.push(new Intern(data.name, data.id, data.email, intData.school))
                         init();
                         });
                 } 
@@ -114,3 +114,5 @@ function askQuestion() {
 };
 
 init();
+
+module.exports = employeeArray
