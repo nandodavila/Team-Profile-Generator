@@ -10,6 +10,8 @@
   **[Contributing](#contributing)**<br>
   **[Tests](#tests)**<br>
   **[Questions](#Questions)**<br>
+  **[Walk Thru Video](#Walk-Thru-Video)**<br>
+  **[Example](#Example)**<br>
   
 
   ## Discription 
@@ -37,8 +39,12 @@
   github: nandodavila
   email: nandodavila94@gmail.com
 
+  ## Walk Thru Video
+  https://drive.google.com/file/d/1MUhVXWO9eryiEbbhYcDwwV9wHH5wxutF/view?usp=sharing
+
   ## Example
   ![screenshot](dist/images/TeamProfile.PNG)
 
+ 
 
   
